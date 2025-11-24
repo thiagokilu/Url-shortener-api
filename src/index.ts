@@ -46,7 +46,7 @@ app.post("/encurtar", async (req, res) => {
       [url, id, expires_at]
     );
 
-    const shortUrl = `https://url-shortener-7jk6.onrender.com//${id}`;
+    const shortUrl = `https://url-shortener-7jk6.onrender.com/${id}`;
 
     res.json({ shortUrl });
   } catch (error) {
