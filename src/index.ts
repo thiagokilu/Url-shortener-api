@@ -133,6 +133,20 @@ async function test() {
 
 test();
 
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      const allowed = "https://url-shortener-ivory-eight.vercel.app/";
+
+      if (!origin || origin === allowed) {
+        callback(null, true); // permite
+      } else {
+        callback(new Error("Cors bloqueado! Origem não permitida: " + origin));
+      }
+    },
+  })
+);
+
 app.listen(port, () => {
   console.log("Servidor rodando na porta", port);
 });
