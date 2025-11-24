@@ -3,7 +3,7 @@ import cors from "cors";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import path from "path";
-const port = 3333;
+const port = process.env.PORT || 3333;
 const app = express();
 import { pool } from "./db.js";
 
@@ -133,4 +133,6 @@ async function test() {
 
 test();
 
-app.listen(port, () => console.log("Servidor rodando na porta", port));
+app.listen(port, () => {
+  console.log("Servidor rodando na porta", port);
+});
