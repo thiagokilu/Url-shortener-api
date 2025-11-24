@@ -5,7 +5,7 @@ import { z } from "zod";
 import path from "path";
 const port = 3333;
 const app = express();
-import { pool } from "./db.js";
+import { pool } from "./db";
 
 const urlSchema = z.object({
   url: z.string().url(),
