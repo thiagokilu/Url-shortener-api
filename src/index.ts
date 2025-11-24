@@ -26,7 +26,7 @@ await pool.query(`
 app.use(
   cors({
     origin: function (origin, callback) {
-      const allowed = "https://url-shortener-ivory-eight.vercel.app/";
+      const allowed = "https://url-shortener-ivory-eight.vercel.app";
 
       if (!origin || origin === allowed) {
         callback(null, true); // permite
