@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Expirado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5fdf5 0%, #e8f5e9 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(46, 125, 50, 0.15);
+            overflow: hidden;
+            text-align: center;
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .icon i {
+            font-size: 45px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+        }
+
+        .feature i {
+            font-size: 24px;
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-size: 1rem;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .leaf-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .leaf-1 {
+            top: -30px;
+            left: -30px;
+            transform: rotate(45deg);
+        }
+
+        .leaf-2 {
+            bottom: -40px;
+            right: -40px;
+            transform: rotate(220deg);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="leaf-decoration leaf-1">
+            <svg viewBox="0 0 24 24" fill="#2e7d32">
+                <path
+                    d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22L6.66,19.7C7.14,19.87,7.64,20,8,20C19,20,22,3,22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8,17,8,17,8Z" />
+            </svg>
+        </div>
+
+        <div class="leaf-decoration leaf-2">
+            <svg viewBox="0 0 24 24" fill="#2e7d32">
+                <path
+                    d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22L6.66,19.7C7.14,19.87,7.64,20,8,20C19,20,22,3,22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8,17,8,17,8Z" />
+            </svg>
+        </div>
+
+        <div class="header">
+            <div class="icon">
+                <i class="far fa-clock"></i>
+            </div>
+            <h1>Link Expirado</h1>
+        </div>
+
+        <p>Este link de acesso não está mais disponível. Por favor, gere um novo link para continuar.</p>
+
+        <a href="http://localhost:5173/" class="btn">
+            <i class="fas fa-link"></i>
+            Encurtar Nova URL
+        </a>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Segurança</h3>
+                <p>Links com validade controlada</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>Rápido</h3>
+                <p>Encurtamento instantâneo</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-chart-line"></i>
+                <h3>Estatísticas</h3>
+                <p>Acompanhe o uso dos links</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
