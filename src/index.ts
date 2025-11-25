@@ -23,19 +23,21 @@ await pool.query(`
 await pool.query(`
   CREATE INDEX IF NOT EXISTS idx_urls_short ON urls(short);
 `);
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      const allowed = "https://url-shortener-ivory-eight.vercel.app";
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       const allowed = "https://url-shortener-ivory-eight.vercel.app";
 
-      if (!origin || origin === allowed) {
-        callback(null, true); // permite
-      } else {
-        callback(new Error("Cors bloqueado! Origem não permitida: " + origin));
-      }
-    },
-  })
-);
+//       if (!origin || origin === allowed) {
+//         callback(null, true); // permite
+//       } else {
+//         callback(new Error("Cors bloqueado! Origem não permitida: " + origin));
+//       }
+//     },
+//   })
+// );
+
+app.use(cors());
 app.use(express.json());
 
 // Criar link encurtado
