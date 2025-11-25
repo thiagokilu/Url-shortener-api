@@ -3,6 +3,7 @@ import cors from "cors";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import path from "path";
+import qrcode from "qrcode";
 const port = process.env.PORT || 3333;
 const app = express();
 import { pool } from "./db.js";
@@ -62,7 +63,9 @@ app.post("/encurtar", async (req, res) => {
 
     const shortUrl = `https://url-shortener-7jk6.onrender.com/${id}`;
 
-    res.json({ shortUrl });
+    const qr = await qrcode.toDataURL(shortUrl);
+
+    res.json({ shortUrl, qr });
   } catch (error) {
     console.error("Erro ao criar link encurtado:", error);
     res.status(500).json({ error: "Erro ao criar link encurtado" });
