@@ -102,9 +102,7 @@ app.post("/encurtar", async (req, res) => {
     );
 
     const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? "https://url-shortener-7jk6.onrender.com"
-        : "http://localhost:3333";
+      process.env.NODE_ENV === "https://url-shortener-7jk6.onrender.com";
 
     const shortUrl = `${baseUrl}/${id}`;
     const qr = await qrcode.toDataURL(shortUrl);
