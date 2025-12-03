@@ -216,7 +216,10 @@ app.get("/stats/:id", async (req, res) => {
       return res.status(404).json({ error: "Link não encontrado" });
     }
     const short = result.rows[0].short;
-    const qr = await qrcode.toDataURL(short);
+    const baseUrl = "https://url-shortener-7jk6.onrender.com";
+
+    const shortUrl = `${baseUrl}/${short}`;
+    const qr = await qrcode.toDataURL(shortUrl);
 
     res.json({
       qr,
