@@ -71,11 +71,14 @@ function getDeviceFromUserAgent(ua = "") {
 
 async function getCountry(ip: any) {
   try {
-    const url = ip ? `https://ipwho.is/${ip}` : "https://ipwho.is/";
+    const url = `https://ipwho.is/${ip}`;
     const response = await fetch(url);
     const data = await response.json();
+
+    if (data.success === false) return "Unknown";
+
     return data.country || "Unknown";
-  } catch (err) {
+  } catch {
     return "Unknown";
   }
 }
@@ -149,20 +152,20 @@ app.get("/:id", async (req, res) => {
     const rawUA = req.headers["user-agent"] || "Unknown";
     const device = getDeviceFromUserAgent(rawUA);
 
-    // Detecta IP real
     const forwarded = req.headers["x-forwarded-for"];
-
     const ip =
       (typeof forwarded === "string" ? forwarded.split(",")[0] : undefined) ||
       (Array.isArray(forwarded) ? forwarded[0] : undefined) ||
       req.socket.remoteAddress ||
       "";
-    // ...
-    const publicApiIp = "74.220.48.0/24";
-    const country =
-      ip === "::1" || ip === "127.0.0.1"
-        ? await getCountry(publicApiIp) // IP público da API
-        : await getCountry(ip); // IP real do visitante
+
+    // se for localhost → marca como Local
+    let country;
+    if (ip === "::1" || ip === "127.0.0.1") {
+      country = "Local";
+    } else {
+      country = await getCountry(ip);
+    }
 
     // Salva visita
     await pool.query(
